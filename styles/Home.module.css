@@ -52,7 +52,6 @@
 }
 
 .description {
-  margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
 }
@@ -127,3 +126,11 @@
     list-style: none;
     font-weight: bold;
 } 
+
+.myImg{
+  border-radius:12px;
+}
+
+.imagewrap{
+  padding: 20px;
+}
