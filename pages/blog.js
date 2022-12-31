@@ -7,12 +7,10 @@ import styles from '../styles/Blog.module.css'
 const Blog = () => {
     const [blogs, setBlogs] = useState([])
     useEffect(() => {
-        console.log("UseEffect is running");
         fetch('http://localhost:3000/api/blogs').then((a) => {
             return a.json();
         })
             .then((parsed) => {
-                console.log(parsed)
                 setBlogs(parsed)
             })
     }, [])
@@ -23,7 +21,7 @@ const Blog = () => {
                 {blogs.map((blogitem) => {
                     return <div key={blogitem.slug}>
                         <Link href={`/blogpost/${blogitem.slug}`}>
-                            <h3>{blogitem.title}</h3></Link>
+                            <h3 className={styles.blogitemh3}>{blogitem.title}</h3></Link>
                         <p className={styles.blogitemp}>{blogitem.content.substr(0, 140)}...</p>
                     </div>
                 })}
