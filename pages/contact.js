@@ -1,8 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
+import styles from '../styles/Contact.module.css'
+
+
+
+
+
 
 const Contact = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [desc, setDesc] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(name, phone, email, desc)
+        const data = { name, phone, email, desc }
+
+        fetch('http://localhost:3000/api/postcontact', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                console.log('Success:', data);
+                alert("Thanks for contacing us")
+                setName('')
+                setPhone('')
+                setDesc('')
+                setEmail('')
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    const handleChange = (e) => {
+        if (e.target.name === "phone") {
+            setPhone(e.target.value)
+        }
+        else if (e.target.name === "email") {
+            setEmail(e.target.value)
+        }
+        else if (e.target.name === "desc") {
+            setDesc(e.target.value)
+        }
+        else if (e.target.name === "name") {
+            setName(e.target.value)
+        }
+        console.log(e, "change");
+    }
     return (
-        <div>This is my contact page</div>
+        <div className={styles.container}>
+            <h1>Contact Us</h1>
+            <form onSubmit={handleSubmit}>
+                <div className={styles.mb3}>
+                    <label htmlFor="name" className={styles.formlabel}>Enter your name</label>
+                    <input type="text" value={name} onChange={handleChange} className="form-control" id="name" name="name" aria-describedby="emailHelp" />
+                </div>
+                <div className={styles.mb3}>
+                    <label htmlFor="email" className={styles.formlabel}>Email address</label>
+                    <input type="email" value={email} onChange={handleChange} className="form-control" id="email" name="email" aria-describedby="emailHelp" />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className={styles.mb3}>
+                    <label htmlFor="phone" className={styles.formlabel}>Enter phone number</label>
+                    <input type="tel" value={phone} onChange={handleChange} className="form-control" id="phone" name="phone" aria-describedby="emailHelp" />
+                </div>
+                <div className={styles.mb3}>
+                    <label htmlFor="desc" className={styles.formlabel}>Elaborate your concern</label>
+                    <textarea onChange={handleChange} value={desc} className="form-control" id="desc" name='desc' placeholder='Write your concern here' rows="3" />
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
     )
 }
 

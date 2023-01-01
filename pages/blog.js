@@ -24,7 +24,7 @@ const Blog = (props) => {
                     return <div key={blogitem.slug}>
                         <Link href={`/blogpost/${blogitem.slug}`}>
                             <h3 className={styles.blogitemh3}>{blogitem.title}</h3></Link>
-                        <p className={styles.blogitemp}>{blogitem.content}...</p>
+                        <p className={styles.blogitemp}>{blogitem.metadesc}...</p>
                     </div>
                 })}
             </main>
