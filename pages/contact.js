@@ -55,22 +55,22 @@ const Contact = () => {
             <form onSubmit={handleSubmit}>
                 <div className={styles.mb3}>
                     <label htmlFor="name" className={styles.formlabel}>Enter your name</label>
-                    <input type="text" value={name} onChange={handleChange} className="form-control" id="name" name="name" aria-describedby="emailHelp" />
+                    <input className={styles.input} type="text" value={name} onChange={handleChange} id="name" name="name" aria-describedby="emailHelp" required />
                 </div>
                 <div className={styles.mb3}>
                     <label htmlFor="email" className={styles.formlabel}>Email address</label>
-                    <input type="email" value={email} onChange={handleChange} className="form-control" id="email" name="email" aria-describedby="emailHelp" />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    <input className={styles.input} type="email" value={email} onChange={handleChange} id="email" name="email" aria-describedby="emailHelp" required />
+                    <div id="emailHelp" className={styles.formtext}>We'll never share your email with anyone else.</div>
                 </div>
                 <div className={styles.mb3}>
                     <label htmlFor="phone" className={styles.formlabel}>Enter phone number</label>
-                    <input type="tel" value={phone} onChange={handleChange} className="form-control" id="phone" name="phone" aria-describedby="emailHelp" />
+                    <input className={styles.input} type="tel" value={phone} onChange={handleChange} id="phone" name="phone" aria-describedby="emailHelp" required />
                 </div>
                 <div className={styles.mb3}>
                     <label htmlFor="desc" className={styles.formlabel}>Elaborate your concern</label>
-                    <textarea onChange={handleChange} value={desc} className="form-control" id="desc" name='desc' placeholder='Write your concern here' rows="3" />
+                    <textarea onChange={handleChange} value={desc} className={styles.input} id="desc" name='desc' rows="3" required />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className={styles.btn}>Submit</button>
             </form>
         </div>
     )

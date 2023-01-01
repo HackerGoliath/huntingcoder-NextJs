@@ -43,7 +43,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 1.5rem;
 }
 
 .title,
@@ -51,10 +51,6 @@
   text-align: center;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
-}
 
 .code {
   background: #fafafa;
@@ -128,9 +124,35 @@
 } 
 
 .myImg{
-  border-radius:12px;
+  width: 157px;
+  border-radius:92px;
 }
 
 .imagewrap{
-  padding: 20px;
+  padding: 15px;
+}
+
+.h2{
+  font-size: 2.5rem;
+}
+
+.h3{
+  font-size: 1.75rem;
+  margin-top: 0;
+  margin-bottom: 11px;
+}
+
+.btn{
+  color: white;
+  background-color: black;
+  padding: 7px 6px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 6px;
+  margin-bottom: 9px;
+}
+
+.p{
+  margin: 16px 0;
+  margin-top: 3px;
 }

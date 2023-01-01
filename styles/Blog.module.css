@@ -18,3 +18,13 @@
 .blogitemp{
 max-width: 45vw;    
 }
+
+.btn{
+  color: white;
+  background-color: black;
+  padding: 7px 6px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 6px;
+  margin-bottom: 9px;
+}
