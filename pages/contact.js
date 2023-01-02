@@ -10,7 +10,6 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(name, phone, email, desc)
         const data = { name, phone, email, desc }
 
         fetch('http://localhost:3000/api/postcontact', {
@@ -22,7 +21,6 @@ const Contact = () => {
         })
             .then((response) => response.text())
             .then((data) => {
-                console.log('Success:', data);
                 alert("Thanks for contacing us")
                 setName('')
                 setPhone('')
@@ -47,7 +45,6 @@ const Contact = () => {
         else if (e.target.name === "name") {
             setName(e.target.value)
         }
-        console.log(e, "change");
     }
     return (
         <div className={styles.container}>
